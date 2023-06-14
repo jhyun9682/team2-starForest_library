@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.mapper.RentalMapper">
+
+<!-- 검색기능 -->
+	<select id="searchSelectById" resultMap="SearchBookResultMap">
+		SELECT
+		b.book_no,
+		b.book_title,
+		b.book_author,
+		b.book_publisher,
+		b.book_page,
+		b.category_no,
+		r.rental_date,
+		r.return_duedate,
+		r.rental_status,
+		r.user_id
+		FROM
+		RENTAL r
+		INNER JOIN BOOK b
+		on r.BOOK_NO
+		= b.BOOK_NO
+		WHERE r.rental_status!=0
+        and r.user_id like '%'||#{keyword}||'%'
+		order by r.rental_date asc
+	</select>
+	<resultMap type="book" id="SearchBookResultMap">
+		<!-- <id column="user_id" property="user_id"/> -->
+		<result column="book_no" property="book_no" />
+		<result column="book_title" property="book_title" />
+		<result column="book_author" property="book_author" />
+		<result column="book_publisher" property="book_publisher" />
+		<result column="book_page" property="book_page" />
+		<result column="category_no" property="category_no" />
+		<collection property="rental" resultMap="searchRentalMap">
+		</collection>
+	</resultMap>
+	<resultMap type="rental" id="searchRentalMap">
+		<result column="rental_date" property="rental_date" />
+		<result column="return_duedate" property="return_duedate" />
+		<result column="rental_status" property="rental_status" />
+		<result column="user_id" property="user_id" />
+	</resultMap>
+	
+	<select id="selectById" resultMap="BookResultMap">
+		SELECT
+		b.book_no,
+		b.book_title,
+		b.book_author,
+		b.book_publisher,
+		b.book_page,
+		b.category_no,
+		r.rental_date,
+		r.return_duedate,
+		r.rental_status
+		FROM
+		RENTAL r
+		INNER JOIN BOOK b
+		on r.BOOK_NO
+		= b.BOOK_NO
+		WHERE r.USER_ID = #{user_id}
+		and r.rental_status!=0
+		order by r.rental_date asc
+	</select>
+	
+	<resultMap type="book" id="BookResultMap">
+		<!-- <id column="user_id" property="user_id"/> -->
+		<result column="book_no" property="book_no" />
+		<result column="book_title" property="book_title" />
+		<result column="book_author" property="book_author" />
+		<result column="book_publisher" property="book_publisher" />
+		<result column="book_page" property="book_page" />
+		<result column="category_no" property="category_no" />
+		<collection property="rental" resultMap="rentalMap">
+		</collection>
+	</resultMap>
+	<resultMap type="rental" id="rentalMap">
+		<result column="rental_date" property="rental_date" />
+		<result column="return_duedate" property="return_duedate" />
+		<result column="rental_status" property="rental_status" />
+	</resultMap>
+	
+	<select id="selectNowLental" resultMap="RentalResultMap">
+		SELECT
+		b.book_no,
+		b.book_title,
+		b.book_author,
+		b.book_publisher,
+		b.category_no,
+		r.rental_date,
+		r.return_duedate,
+		r.user_id
+		FROM
+		RENTAL r
+		INNER JOIN BOOK b
+		on r.BOOK_NO
+		= b.BOOK_NO
+		WHERE 
+		r.rental_status!=0
+		order by r.rental_date asc
+	</select>
+	<resultMap type="book" id="RentalResultMap">
+		<!-- <id column="user_id" property="user_id"/> -->
+		<result column="book_no" property="book_no" />
+		<result column="book_title" property="book_title" />
+		<result column="book_author" property="book_author" />
+		<result column="book_publisher" property="book_publisher" />
+		<result column="category_no" property="category_no" />
+		<collection property="rental" resultMap="rentalTMap">
+		</collection>
+	</resultMap>
+	<resultMap type="rental" id="rentalTMap">
+		<result column="rental_date" property="rental_date" />
+		<result column="return_duedate" property="return_duedate" />
+		<result column="user_id" property="user_id" />
+	</resultMap>
+
+	<select id="selectByIdTotalList" resultMap="BookTotalResultMap">
+		SELECT
+		b.book_no,
+		b.book_title,
+		b.book_author,
+		b.book_publisher,
+		b.book_page,
+		b.category_no,
+		r.rental_date,
+		r.return_duedate,
+		r.return_date,
+		r.rental_status
+		FROM
+		RENTAL r
+		INNER JOIN BOOK
+		b
+		on r.BOOK_NO = b.BOOK_NO
+		WHERE r.USER_ID = #{user_id}
+		order by r.rental_date asc
+	</select>
+	<resultMap type="book" id="BookTotalResultMap">
+		<!-- <id column="user_id" property="user_id"/> -->
+		<result column="book_no" property="book_no" />
+		<result column="book_title" property="book_title" />
+		<result column="book_author" property="book_author" />
+		<result column="book_publisher" property="book_publisher" />
+		<result column="book_page" property="book_page" />
+		<result column="category_no" property="category_no" />
+		<collection property="rental" resultMap="rentalTotalMap">
+		</collection>
+	</resultMap>
+	<resultMap type="rental" id="rentalTotalMap">
+		<result column="rental_date" property="rental_date" />
+		<result column="return_duedate" property="return_duedate" />
+		<result column="return_date" property="return_date" />
+		<result column="rental_status" property="rental_status" />
+	</resultMap>
+
+
+
+
+	<!-- 기간 연장 <update id="updateDate" parameterType="com.itwill.domain.Rental"> 
+		<![CDATA[ update rental set return_duedate = return_duedate+7 where user_id=#{user_id} 
+		and book_no=#{book_no}; ]]> </update> user_id로 대출 리스트 뽑기 <select id="selectById" 
+		parameterType="com.itwill.domain.Book"> SELECT b.book_no, b.book_title, b.book_author, 
+		b.book_publisher, b.book_input_date, b.category_no FROM RENTAL r INNER JOIN 
+		BOOK b on r.BOOK_NO = b.BOOK_NO WHERE r.USER_ID = #{user_id}; </select> book_no로 
+		대출유저 리스트 <select id="selectByNo" resultType="Map" parameterType="int"> select 
+		u.user_id, u.user_name, u.user_rental_status, u.user_book_cnt_limit, b.book_no, 
+		b.book_title, b.book_author, b.book_publisher, b.book_input_date, b.category_no 
+		from rental r left join user_info u on r.user_id = u.user_id inner join book 
+		b on r.book_no = b.book_no where b.book_no = #{book_no} and u.user_id is 
+		not null; </select> 반납했을 때 렌탈테이블 업데이트 (admin) <update id="updateRentalStatus" 
+		parameterType="com.itwill.domain.Rental"> update rental set rental_status 
+		= 0 where user_id = #{user_id} and book_no = #{book_no}; </update> -->
+
+</mapper>
