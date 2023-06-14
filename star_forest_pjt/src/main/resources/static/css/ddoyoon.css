@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+/*
+seat_reservation css
+*/
+.seat_category_wrap {
+	font-family: 'GmarketSansMedium';
+	margin-left:0;
+	margin-right:0;
+	margin-top:100px;
+	align-content: center;
+	width:100%;
+}
+
+.seat_wrap {
+	font-family: 'GmarketSansMedium';
+	margin:auto;
+	align-content: center;
+	width:1800px;
+}
+
+
+.my_seat_wrap {
+	margin-left:0;
+	margin-right:0;
+	margin-top:100px;
+	align-content: center;
+	width:100%;
+}
+#my_seat_table_wrap{
+		font-family: 'GmarketSansMedium';
+		border-left:1px solid;
+		border-right:1px solid;
+		width:600px;
+		height:500px;
+		margin-left:600px;
+		margin-right:0;
+		margin-top:10px;
+		align-content: center;
+		border:none;
+}
+.no_seat {
+	margin:auto;
+	width:250px;
+}
+
+#btn_seat_partition{
+	width: 200px;
+	height: 200px;
+	margin-right: 50px;
+}
+
+#btn_seat_nopartition{
+	width: 200px;
+	height: 200px;
+	margin-left: 50px;
+}
+#A_room {
+	width: 800px;
+	margin-top: 100px;
+	margin-bottom:0;
+	margin-left: 120px;
+	text-align: center;
+	align-content: center;
+	float:left;
+	position: static;
+}
+.a-deck{
+	border: none; 
+	background-color: #fff171;
+	border-radius: 20px; 
+	width:150px; 
+	height:150px;
+	float: left; 
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+#B_room {
+	width: 800px;
+	margin-top: 100px;
+	margin-bottom:0;
+	margin-left: 40px;
+	text-align: center;
+	align-content: center;
+	float:left;
+	position: static;
+}
+.b-deck{
+	border: none; 
+	background-color: #d4edff; 
+	border-radius: 20px;
+	width:150px; 
+	height:150px;
+	float: left; 
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+#C_room {
+	width: 800px;
+	margin-top: 100px;
+	margin-bottom:100px;
+	margin-left: 95px;
+	text-align: center;
+	align-content: center;
+	float:left;
+	position: static;
+}
+.c-deck{
+	border: none; 
+	border-radius: 20px;
+	background-color: #ffe6f6; 
+	width:150px; 
+	height:150px;
+	float: left; 
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+#D_room {
+	width: 800px;
+	margin-top: 100px;
+	margin-bottom:100px;
+	margin-left: 40px;
+	text-align: center;
+	align-content: center;
+	float:left;
+	position: static;
+}
+	
+.d-deck{
+	border: none; 
+	border-radius: 20px;
+	background-color: #e4ffc5; 
+	width:150px; 
+	height:150px;
+	float: left; 
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+
+#ABsection {
+	width: 1300px;
+	height:350px;
+	margin-top: 100px;
+	margin-left: 250px;
+	text-align: center;
+	align-content: center;
+	position: static;
+}
+.a_sec{
+	border: none; 
+	border-radius: 20px;
+	background-color: #fffac2; 
+	width:150px; 
+	height:150px;
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+	float: left;
+}
+
+.b_sec{
+	border: none; 
+	border-radius: 20px;
+	background-color: #fffac2; 
+	width:150px; 
+	height:150px;
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 2px;
+	text-align: center;
+	align-content: center;
+	float: left;
+}
+
+#CDsection {
+	width: 1300px;
+	height:500px;
+	margin-top: 100px;
+	margin-left: 250px;
+	
+	text-align: center;
+	align-content: center;
+	position: static;
+}
+.c_sec{
+	border: none; 
+	border-radius: 20px;
+	background-color: #d4edff; 
+	width:150px; 
+	height:150px;
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+	float: left;
+}
+
+.d_sec{
+	border: none; 
+	border-radius: 20px;
+	background-color: #d4edff; 
+	width:150px; 
+	height:150px;
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 2px;
+	text-align: center;
+	align-content: center;
+	float: left;
+}
+
+
+.card-text{
+	margin:auto;
+	width: 120px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+/*
+사용중
+*/
+.card_text{
+	margin:auto;
+	width: 120px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	color: red;
+	font-style: italic;
+	font-weight: bold;
+}
+
+
+
+#my_room {
+	margin-left:220px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+	float:left;
+	position: relative; top: -400px; left: -15px; right:400px; 
+}
+.my-deck{
+	border: none; 
+	border-radius: 20px;
+	background-color: #ffed9f; 
+	width:150px; 
+	height:200px;
+	float: left; 
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+
+
+/*
+request_board css
+*/
+#requestBoard_wrap{
+	margin:auto;
+	text-align: center;
+	width:1000px;
+	
+}
+
+#requestBoard_write_wrap{
+	margin:auto;
+	text-align: center;
+	width:800px;
+	
+}
+
+
+
+ table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: left;
+  }
+  .t1{
+  text-align: center;
+  }
+  .t3{
+  text-align: center;
+  }
+  .t4{
+  text-align: center;
+  width:100px;
+  }
+  .t5{
+  text-align: left;
+  padding-left: 10px;
+  width:100px;
+  background-color: white;
+  }
+  #td_content {
+  	font-size: 10pt;
+  }
+  /* 희망도서 신청하기버튼 */
+  #btn_write{
+  	  position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  	margin-left: 850px;
+  	margin-top: 20px;
+  }
+  /* 공지사항쓰기버튼 */
+  #btn_write_notice{
+  	  position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  	margin-left: 850px;
+  	margin-top: 20px;
+  }
+  
+  #btn_request_write_notice_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #btn_request_list{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #search_btn{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #btn_request_reply_form{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #btn_request_modify_admin_form{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #btn_request_remove_admin_action{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+    }
+   #btn_request_reply_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_modify_admin_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_modify_action{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_modify_form{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_remove_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_write_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+  .btn_seat_continue{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  } 
+  .btn_seat_return{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+    }
+    .btn_seat_reservation{ 
+    border-radius: 5px;
+     border: none;
+     width:50px;
+    background-color: white;
+    }
+  #notice_title{
+  	color:red;
+  }
+  .request_item_a {
+  color: black;
+  font-size: 10pt;
+  text-align: left;
+  }
+  
+  .btn_mrl {
+   	margin-top: 40px;
+  }
+.page_area{
+	margin:auto; 
+ }
+ #page{
+     list-style : none;
+     display: inline-block;
+    margin: 10px 0 0 30px;      
+  }
+  
+ #page li{
+    float: left;
+    font-size: 15px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }
+
+ a:link {color:black; text-decoration: none;}
+ a:visited {color:black; text-decoration: none;}
+ a:hover {color:black; text-decoration: underline;}
+ 

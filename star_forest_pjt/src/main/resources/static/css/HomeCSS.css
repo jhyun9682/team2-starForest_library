@@ -1,0 +1,166 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+/* carousel */
+.carousel-indicators1 {
+	font-family: 'GmarketSansMedium';
+	right: 0;
+	bottom: -30px;
+}
+
+.carousel-indicators1 li {
+	outline: 1px solid lightgray;
+}
+
+.carousel-indicators1 .active {
+	outline: 1px solid black;
+}
+
+.card-body {
+	height: 60px;
+	padding: 0;
+	text-align: center;
+	font-family: 'GmarketSansMedium';
+}
+
+.book-title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: medium;
+	font-family: 'GmarketSansMedium';
+}
+
+.controls-bottom {
+	display: inline-block;
+	float: right;
+	font-family: 'GmarketSansMedium';
+}
+
+.carousel-inner {
+	height: 250px;
+}
+
+/* tabs */
+.home_post_title {
+	width: 60%;
+	text-align: left;
+	font-size: medium;
+	font-weight: normal;
+	font-family: 'GmarketSansMedium';
+}
+
+.home_post_date {
+	width: 40%;
+	font-size: medium;
+	font-weight: lighter;
+	font-family: 'GmarketSansMedium';
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	font-family: 'GmarketSansMedium';}
+
+a:hover {
+	color: black;
+	text-decoration: none;
+	font-family: 'GmarketSansMedium';
+}
+
+.navbar {
+	height: 70px;
+	background-color: #107637;
+	font-family: 'GmarketSansMedium';
+}
+
+.hr-green {
+	border-bottom: 2px solid #107637;
+	font-family: 'GmarketSansMedium';
+}
+
+.img-fit {
+	width: 100px;
+	height: 100px;
+	font-family: 'GmarketSansMedium';
+}
+
+.home-gray {
+	background-color: #f8f9fa;
+	box-shadow: 0 0 15px 5px #e9e9e9;
+	font-family: 'GmarketSansMedium';
+}
+
+.home-table {
+	background-color: white;
+	border: 1px solid #cecece;
+	font-family: 'GmarketSansMedium';
+}
+
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-family: 'GmarketSansMedium';
+}
+
+.footer-table th {
+	border-right: 1px solid white;
+	padding-right: 10px;
+	font-family: 'GmarketSansMedium';
+}
+
+.footer-table td {
+	padding-left: 10px;
+	font-family: 'GmarketSansMedium';
+}
+
+.home-tag {
+	border: 1px solid #ccc;
+	height: 23%;
+	padding: 15px;
+	background-color: #f8f9fa;
+	font-family: 'GmarketSansMedium';
+}
+
+#home-today {
+	background-color: #8FBC8F;
+	color: white;
+	font-weight: 400;
+	height: 50%;
+	padding: 30px;
+	font-family: 'GmarketSansMedium';
+}
+
+#home-holiday {
+	background-color: #FAFAD2;
+	color: black;
+	height: 50%;
+	padding: 30px;
+	font-family: 'GmarketSansMedium';
+}
+
+#home-holiday p{
+	font-size: 20px;
+	font-weight: 100;
+	font-family: 'GmarketSansMedium';
+}
+
+#home-display {
+	padding-top: 200px;
+	font-weight: 200;
+	font-family: 'GmarketSansMedium';
+	color: white;
+}
+
+#home-searchbar {
+	padding-top: 80px;
+	font-family: 'GmarketSansMedium';
+}
+
+#date {
+	font-size: 40px;
+	font-weight: 400;
+	font-family: 'GmarketSansMedium';
+}
+

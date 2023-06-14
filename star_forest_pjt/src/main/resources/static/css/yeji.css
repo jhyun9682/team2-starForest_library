@@ -1,0 +1,82 @@
+/***나의도서side bar****/
+li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+#menu{
+	overflow:hidden;
+}
+#menu > li {
+	float:left;
+	text-align:center;
+}
+
+.submenu{
+	height:0;
+	overflow:hidden;
+}
+.submenu > li:hover{
+	background-color:#efefeb;
+	transition-duration:0.5s;
+}
+
+#menu > li:hover .submenu{
+	height:70px;
+	transition-duration:1s;
+}
+/********북디테일 내서재버튼********/
+.w-f-btn {
+    position: relative;
+    border: 2px solid #A9A9A9;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: 'GmarketSansMedium';
+    
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+.w-btn-favorite {
+    background-color: #FFFFFF;
+    color: #4c552a;
+}
+
+.w-btn-favorite-outline {
+    border: 2px solid #8FBC8F;
+    color: #4c552a;
+}
+
+.w-btn-favorite-outline:hover {
+	 border: 2px solid #8FBC8F;
+    color: #4c552a;
+    background: #FFFFFF;
+}
+
+.page_area{
+	margin:auto; 
+ }
+ #page_form{
+ 	text-align: center;
+ }
+ #page{
+     list-style : none;
+     display: inline-block;
+  }
+  
+ #page li{
+    float: left;
+    font-size: 15px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }
+  
+   .count_wrap{
+   display:flex;
+  text-align: center;
+  margin: auto;
+ 
+  }
