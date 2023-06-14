@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.mapper.SearchMapper">
+
+
+
+
+
+
+<!-- 분야별 리스트 1차
+<select id="list_1" resultType="com.itwill.domain.Search">
+
+select 
+b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,b.category_no,bc.category_name,bc.cateno
+from book b 
+inner join  book_category bc 
+on b.category_no=bc.category_no  
+where b.category_no =#{category_no}
+or bc.cateno=#{cateno}
+
+</select>
+
+ 분야별 리스트 2차
+<select id="list_2" resultType="com.itwill.domain.Search">
+
+select 
+b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,b.category_no,bc.category_name,bc.cateno
+from book b 
+inner join  book_category bc 
+on b.category_no=bc.category_no  
+where b.category_no =#{category_no}
+
+</select>
+
+
+<select id="category" resultType="com.itwill.domain.Search">
+
+select level, category_name, category_no, cateno from book_category
+    start with cateno is null connect by prior category_no = cateno; 
+
+</select>
+
+ <select id='bookListAjax' resultType='com.itwill.domain.Search'>
+        select book_no,book_title,book_author
+        from book order by book_no desc
+    </select>
+    
+    <select id='bookList' resultType='com.itwill.domain.Search'>
+        select book_no,book_title,book_author
+        from book order by book_no
+    </select>
+    
+    01. 상품 전체 목록
+book_no,book_title,book_author,book_image,book_image_src 
+ 
+ SELECT  
+        	b.book_no,b.book_title,b.book_author,b.book_publisher,b.book_image,b.book_image_src,b.category_no,bc.category_name
+        from book b 
+		left join  book_category bc 
+		on b.category_no=bc.category_no
+        ORDER BY b.book_no
+    <select id="listBook" resultType="com.itwill.domain.Search">
+        SELECT  
+        	b.book_no,b.book_title,b.book_author,b.book_publisher,b.book_image,b.book_image_src,b.category_no,bc.category_name
+        from  book b
+        left join  book_category bc 
+		on b.category_no=bc.category_no
+        ORDER BY book_no
+        
+        SELECT 
+		 b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,bc.category_name
+		 FROM book b 
+		 INNER JOIN
+		 book_category bc 
+		 on b.category_no=bc.category_no
+		 WHERE b.book_no=#{book_no}
+		 b.book_title like '%'||#{keyword}||'%'
+		 b.book_author like '%'||#{keyword}||'%'
+		 b.book_publisher like '%'||#{keyword}||'%'
+		 bc.category_name like '%'||#{keyword}||'%'
+		 order by book_no asc
+		 
+		 SELECT 
+		 book_no,book_title,book_author,book_image,book_image_src
+		 FROM book
+		 order by book_no asc
+		 
+		 
+		 <select id="cateList" resultType="com.itwill.domain.Search" parameterType="com.itwill.domain.Search">
+		SELECT 
+		 b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,b.category_no
+		 FROM book b 
+		 INNER JOIN
+		 book_category bc 
+		 on b.category_no=bc.category_no
+		 <where>
+		       b.category_no =#{category_no}
+  		</where>
+		  order by book_no asc
+	</select>
+	
+	
+	<select id="allList" resultType="com.itwill.domain.Search" parameterType="com.itwill.domain.Search">
+		 select 
+		 book_no,book_title,book_author,book_image,book_image_src
+		 from book 
+		 order by book_no asc
+	</select>
+	<select id="selectNo" resultType="com.itwill.domain.Search" parameterType="com.itwill.domain.Search">
+		SELECT 
+		 b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,bc.category_name
+		 FROM book b 
+		 INNER JOIN
+		 book_category bc 
+		  on b.category_no=bc.category_no
+		 WHERE b.book_no=#{book_no}
+		 order by book_no asc
+	</select>
+	
+	
+	
+	<select id="selectNoTot" resultType="com.itwill.domain.Search" parameterType="com.itwill.domain.Search">
+		SELECT 
+		 book_no,book_title,book_author,book_image,book_image_src
+		 FROM book
+		 WHERE book_no=#{book_no}
+		 order by book_no asc
+	</select>
+	var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
+		console.log(param);
+		$.ajax({
+			url : 'getSearchList',
+			method : 'GET',
+			data : param,
+			success : function(bookList) {
+				console.log(bookList);
+				var html='';
+				for(var i=0;i < bookList.length;i++){
+					var book = bookList[i];
+					console.log(book.book_image_src);
+					console.log(book.book_title);
+					`<div class="col-md-3">
+						<div class="card mb-3">;
+										<div class="card-body p-0">;
+										<a href="book_detail?book_no=${book.book_no}>;
+										<img class="card-image-top img-fluid" width="100%" alt="" src=${book.book_image_src}>;
+								</a>;
+									<div class="card-body">;
+									<div class="card-title">;
+											<div class="book-title" id="book-title">${book.book_title}</div>;
+									<h6 class="book_author">${book.book_author}</h6>;
+								</div>;
+									</div>;
+								</div>;
+							</div>;
+					</div>`;
+					console.log(html);	
+				}
+				$('#searchBookList').html(html);
+			}
+		});
+		e.preventDefault();
+		
+		
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+
+			<if test="type=='book_title' and keyword != null and keyword != '' ">
+
+				AND b.book_title like '%'||#{keyword}||'%'
+
+			</if>
+
+			<if test="type=='book_author' and keyword != null and keyword != '' ">
+
+				AND b.book_author like '%'||#{keyword}||'%'
+			</if>
+
+			<if test="type=='book_publisher' and keyword != null and keyword != '' ">
+
+				AND b.book_publisher like '%'||#{keyword}||'%'
+
+			</if>	
+			<if test="type=='category_name' and keyword != null and keyword != '' ">
+
+				AND bc.category_name like '%'||#{keyword}||'%'
+
+			</if>	
+
+		</trim>
+		
+    </select-->
+    
+    <!-- 검색기능 -->
+	<select id="searchList" resultType="com.itwill.domain.Search" parameterType="com.itwill.domain.Search">
+		SELECT 
+		 b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,bc.category_name
+		 FROM book b 
+		 INNER JOIN
+		 book_category bc 
+		 on b.category_no=bc.category_no
+		 <where>
+		    <if test="type !=null and type.equals('book_title')">
+		        b.book_title like '%'||#{keyword}||'%'
+		    </if>
+		    <if test="type !=null and type.equals('book_author')">
+		        or b.book_author like '%'||#{keyword}||'%'
+		    </if>
+		    <if test="type !=null and type.equals('book_publisher')">
+		        or b.book_publisher like '%'||#{keyword}||'%'
+		    </if>
+		    <if test="type !=null and type.equals('category_name')">
+		       or bc.category_name like '%'||#{keyword}||'%'
+		    </if>
+  		</where>
+		  order by book_no asc
+	</select>
+	
+	
+	<!-- 게시물 총 갯수 -->
+	
+<select id="categoryCount" resultType="Integer" parameterType="java.lang.Integer">
+	select count(*)
+	from book
+     <where>
+     	<if test="catrgory_no!=900">
+		       category_no =#{category_no}
+		</if>       
+  	</where>
+</select>
+
+
+<!--  // 페이지에 있는 게시물 시작번호 / 끝번호-->
+
+<select id="listAll" resultType="com.itwill.domain.Search"  parameterType="map"> 
+
+SELECT * FROM
+<![CDATA[
+		( SELECT rownum idx, s.*  FROM
+				( SELECT book_no,book_title,book_image,book_image_src FROM book
+				  
+]]>					
+     		<if test="category_no != null">
+		       	 where category_no =#{category_no}
+			</if>       
+<![CDATA[	
+		order by book_no asc 					 
+			) s
+	  )
+	   where idx >= #{pageBegin} and idx <=  #{pageEnd}
+]]>
+			
+	
+   			
+   	
+</select>
+
+	
+	
+	
+	
+	
+    
+    
+</mapper>
