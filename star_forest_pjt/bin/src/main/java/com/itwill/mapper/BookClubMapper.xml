@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.mapper.BookClubMapper">
+	<!--  
+	<insert id="create" parameterType="com.itwill.domain.BookClub">
+		insert into book_club values(SEQ_book_club_club_no.nextval,#{club_name},#{club_count},
+									 #{club_person},#{club_time},#{club_place},#{club_content},
+					 				 #{club_readcount},#{category_no},#{user_id})
+	</insert>
+ 
+	<select id="selectAll" resultType="com.itwill.domain.BookClub">
+		select * from book_club
+	</select>
+	<select id="selectByCategory" parameterType="int" resultType="com.itwill.domain.BookClub">
+		select club_name,club_count,club_person,club_time,club_place,club_content from book_club 
+			where category_no=#{category_no}
+	</select>
+	<select id="selectById" parameterType="String" resultType="com.itwill.domain.BookClub">
+		select club_name,club_person,club_time,club_place,club_content from book_club 
+			where user_id=#{user_id}
+	</select>
+	<select id="selectByNo" parameterType="int" resultType="com.itwill.domain.BookClub">
+		select club_name,club_count,club_person,club_time,club_place,club_content from book_club 
+			where club_no=#{club_no}
+	</select>
+	
+	<update id="update" parameterType="int" >
+		update book_club set club_name=#{club_name},club_count=#{club_count},club_person=#{club_person},
+							 club_time=#{club_time},club_place=#{club_place},club_content=#{club_content} 
+							 where club_no=#{club_no}
+	</update>
+	<update id="clubCount" parameterType="int">
+		update book_club set club_count=club_count-1 where club_count>0 and club_no=#{club_no}
+	</update>
+	
+	<delete id="remove" parameterType="int">
+		delete from book_club where club_no=#{club_no}
+	</delete>
+	-->
+
+
+
+</mapper>
