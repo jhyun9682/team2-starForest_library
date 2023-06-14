@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<!--mapper에서 매칭할 parameter Type 별칭 설정-->
+	<typeAliases>
+		<package name="com.itwill.domain"/>
+	</typeAliases>
+	
+	
+	<environments default="development">
+	
+		<!-- environment id를 구분하여 연결할 DB를 여려개 구성할 수 도 있음 -->
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+				<dataSource type="POOLED">
+					<property name="driver" value="oracle.jdbc.OracleDriver"/>
+					<property name="url" value="jdbc:oracle:thin:@182.237.126.19:1521:XE"/>
+					<property name="username" value="sys as sysdba"/>
+					<property name="password" value="sys"/>
+				</dataSource>
+		</environment>
+		
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/itwill/mapper/BookCategoryMapper.xml"/> 
+		<mapper resource="com/itwill/mapper/BookClubMapper.xml"/> 
+		<mapper resource="com.itwill.mapper.BookMapper.xml"/> 
+		<mapper resource="com/itwill/mapper/FavoriteMapper.xml"/> 
+		<mapper resource="com/itwill/mapper/NoticeMapper.xml"/> 
+		<mapper resource="com/itwill/mapper/RentalMapper.xml"/> 
+		<mapper resource="com/itwill/mapper/RequestBoardMapper.xml"/> 
+		<mapper resource="com/itwill/mapper/ReservationMapper.xml"/> 
+		<mapper resource="com/itwill/mapper/SeatReservationMapper.xml"/> 
+		<mapper resource="com/itwill/mapper/UserMapper.xml"/> 
+	</mappers>
+	
+	
+</configuration>
