@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.mapper.UserMapper2">
+
+<!-- 회원 가입 
+<insert id= "insertCustomer" parameterType="User">
+insert into user_info 
+values 
+(#{user_id},#{user_name},#{user_password},#{user_email},#{user_birth},#{user_gender},#{user_phone},#{user_address},#{category_no})
+</insert>
+-->
+
+<!-- 로그인 
+<select id="login" resultType="User">
+select * from user_info where user_id=#{user_id} and user_password=#{user_password}
+</select>
+-->
+
+<!-- 아이디 비번 찾기 
+
+
+<insert id="create" parameterType="com.itwill.domain.User"
+>
+			insert into user_info(user_id, user_name,user_password,user_email,user_birth,user_gender,user_phone,user_address,category_no) 
+			values(#{user_id},#{user_name},#{user_password},#{user_email},#{user_birth},#{user_gender},#{user_phone},#{user_address},#{category_no})
+	</insert>
+	
+	<select id="existedUser" 	parameterType="java.lang.String" 
+								resultType="int">
+		select count(*) cnt from user_info where user_id=#{user_id}
+	</select>
+
+<select id="signUp">
+<![CDATA[
+			insert into user_info(user_id, user_name,user_password,user_email,user_birth,user_gender,user_phone,user_address,category_no) 
+			values(#{userId},#{user_name},#{user_password},#{user_email},#{user_birth},#{user_gender},#{user_phone},#{user_address},#{category_no})
+	]]>
+	</select>
+	
+	<select id="idCheck" resultType="int">
+	<![CDATA[
+		select count(*) from user_info where user_id=#{userId}
+		]]>
+	</select>
+
+-->
+
+</mapper>

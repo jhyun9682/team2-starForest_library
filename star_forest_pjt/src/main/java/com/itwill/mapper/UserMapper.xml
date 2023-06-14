@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.mapper.UserMapper">
+	<!--  
+	<insert id="create" parameterType="com.itwill.domain.User">
+		insert into user_info values(#{user_id},#{user_name},#{user_password},#{user_email},
+									 #{user_birth},#{user_gender},#{user_phone},#{user_address},
+									 #{user_qr},#{user_rental_status},#{user_book_cnt_limit},
+									 #{user_book_weight},#{category_no})
+	</insert>
+	
+	<select id="selectAll" resultType="com.itwill.domain.User">
+		select  * from user_info u join book_category c on u.category_no=c.category_no
+	</select>
+	<select id="findUser" parameterType="int" resultType="com.itwill.domain.User" >
+		select * from user_info u join book_category c on u.category_no=c.category_no where user_id=#{user_id}
+	</select>
+	<select id="existedUser" parameterType="String" resultType="int">
+		select count(*) from user_info where user_id=#{user_id}
+	</select>
+	<select id="PWcheck" parameterType="com.itwill.domain.User" resultType="int">
+		select count(*) from user_info where user_id=#{user_id} and user_password=#{user_password}
+	</select>
+	<select id="rentalStopPeriod" parameterType="String" resultType="int">
+		select trunc(sysdate)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id where u.user_id=#{user_id}
+	</select>
+	
+	<update id="updatePassword" parameterType="String">
+		update user_info set user_password=#{user_password} where user_id=#{user_id}
+	</update>
+	<update id="update" parameterType="com.itwill.domain.User">
+		update user_info set user_password=#{user_password},user_email=#{user_email},user_birth=#{user_birth},
+		user_phone=#{user_phone},user_address=#{user_address},category_no=#{category_no} where user_id=#{user_id}
+	</update>
+	<update id="userRentalCount" parameterType="String">
+		update user_info set user_book_cnt_limit=user_book_cnt_limit-1 
+		where user_book_cnt_limit>0 and user_id=#{user_id}
+	</update>
+	
+	<delete id="remove" parameterType="String">
+		delete from user_info where user_id=#{user_id}
+	</delete>
+	-->
+
+
+</mapper>
