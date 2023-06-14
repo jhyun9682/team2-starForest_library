@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.mapper.RequestBoardMapper">
+<!-- 
+<insert id="create" parameterType="com.itwill.domain.RequestBoard">
+	insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,#{board_title},
+									 sysdate,#{board_content},0,0,#{board_type_no},0,1,
+									 SEQ_REQUEST_BOARD_BOARD_NO.currval,#{category_no},#{user_id})
+
+</insert>
+selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받아볼 수 있다.
+ -->
+ <!-- 
+ //게시물생성
+<insert id="create" parameterType="com.itwill.domain.RequestBoard">
+	<selectKey order="BEFORE" resultType="int" keyProperty="board_no">
+		select SEQ_REQUEST_BOARD_BOARD_NO.nextval from dual  
+	</selectKey>
+	insert into request_board values(#{board_no},#{board_title},
+									 sysdate,#{board_content},0,0,#{board_type_no},0,1,
+									 SEQ_REQUEST_BOARD_BOARD_NO.currval,#{category_no},#{user_id})
+</insert>
+//답글생성 
+<insert id="createReply" parameterType="com.itwill.domain.RequestBoard">
+		<selectKey order="BEFORE" resultType="int" keyProperty="board_no">
+			select SEQ_REQUEST_BOARD_BOARD_NO.nextval from dual  
+		</selectKey>
+		BEGIN 
+		update request_board set board_step=board_step+1 where board_step>#{board_step} and 
+		group_no=#{group_no}
+		
+		insert into request_board values(#{board_no},#{board_title},sysdate,
+									 #{board_content},0,0,2,#{board_depth}+1,#{board_step}+1,
+									 SEQ_REQUEST_BOARD_BOARD_NO.currval,#{category_no},#{user_id})
+	 	END
+</insert>
+
+//내가 쓴 게시물들 확인 
+<select id="findUserBoard" parameterType="String" resultType="com.itwill.domain.RequestBoard">
+	select * 
+	from request_board
+	where user_id = #{user_id}
+</select>
+
+//게시물 존재 여부 
+<select id="isExisted" parameterType="com.itwill.domain.RequestBoard" resultType="boolean">
+	SELECT if(count(*) =1,1,0) FROM request_board WHERE groupno = #{groupno} AND board_depth >= 0 AND board_step >= 1 ORDER BY board_step,board_depth ASC
+
+</select>
+
+//게시물 삭제
+<delete id="delete" parameterType="int">
+	delete from request_board where board_no=#{board_no}
+</delete>
+
+<delete id="deleteByGroupno" parameterType="int">
+	delete from request_board where groupno=#{groupno}
+</delete>
+
+//게시물 수정
+<update id="update" parameterType="com.itwill.domain.RequestBoard">
+	update request_board set board_title=#{board_title}, board_content=#{board_content},
+							 category_no=#{category_no}
+							 where board_no=#{board_no}
+</update>
+
+// 조회수 증가
+<update id="addReadCount" parameterType="int">
+	update request_board set board_readcount = board_readcount+1 
+	where board_no=#{board_no}
+</update>
+
+// 게시물 전체 리스트
+<select id="selectAll" resultType="com.itwill.domain.RequestBoard">
+	select select board_no,board_title,board_date,board_content,board_readcount,board_status,board_type_no,category_no,user_id
+	from request_board
+	order by groupno desc, board_step asc
+</select>
+
+
+
+// 게시물 상세 보기 
+<select id="selectOne" parameterType="int" resultType="com.itwill.domain.RequestBoard">
+	select *
+	from request_board
+	where board_no=#{board_no}
+</select>
+
+
+	<sql id="criteria">
+		<trim prefix="AND (" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							board_title like '%'||#{keyword}||'%' 
+						</when>
+						<when test="type == 'C'.toString()">
+							board_content like '%'||#{keyword}||'%' 
+						</when>
+						<when test="type == 'W'.toString()">
+							user_id like '%'||#{keyword}||'%' 
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	
+	</sql>
+-->
+<!--검색 조건문-->
+<sql id="criteria">
+ 	<if test="type != null and keyword!=null">
+		<where>
+			    <if test="type == 'board_title'">
+			         and board_title like '%'||#{keyword}||'%' 
+			    </if>
+			    <if test="type == 'board_content'">
+			        and board_content like '%'||#{keyword}||'%' 
+			    </if>
+			    <if test="type == 'user_id'">
+			        and user_id like '%'||#{keyword}||'%' 
+			    </if>
+		</where>
+	</if>
+</sql>
+<sql id="test1">
+	<where>
+  			       <if test="type != null and type == 'board_title' and keyword != null ">
+				         and board_title like '%'||#{keyword}||'%' 
+				    </if>
+				    <if test="type != null and  type == 'board_content' and keyword != null">
+				        and board_content like '%'||#{keyword}||'%' 
+				    </if>
+				    <if test="type != null and  type == 'user_id' and keyword != null">
+				        and user_id like '%'||#{keyword}||'%' 
+				    </if>
+   </where>
+</sql>	 
+<sql id="test2">
+	<where>
+  			       <if test="cri.type != null and cri.type == 'board_title' and cri.keyword != null ">
+				         and board_title like '%'||#{cri.keyword}||'%' 
+				    </if>
+				    <if test="cri.type != null and  cri.type == 'board_content' and cri.keyword != null">
+				        and board_content like '%'||#{cri.keyword}||'%' 
+				    </if>
+				    <if test="cri.type != null and  cri.type == 'user_id' and cri.keyword != null">
+				        and user_id like '%'||#{cri.keyword}||'%' 
+				    </if>
+   </where>
+</sql>	 
+ <!-- 게시물 총 갯수 -->
+	
+<select id="countAll" resultType="Integer" parameterType="com.itwill.util.Criteria">
+	select count(*)
+	from request_board
+	<include refid="test1"/>
+    
+	
+</select>
+
+
+<!--  // 페이지에 있는 게시물 시작번호 / 끝번호-->
+
+<select id="list" resultType="com.itwill.domain.RequestBoard"  parameterType="map"> 
+
+SELECT * FROM
+<![CDATA[
+		( SELECT rownum idx, s.*  FROM
+				( SELECT board_no, board_title, user_id,board_date,board_content,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board
+]]>					
+					
+					<include refid="test2"/>
+<![CDATA[						         
+								 ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
+			) s
+	  )
+	   where idx >= #{pageBegin} and idx <=  #{pageEnd}
+]]>
+			
+	
+   			
+   	
+</select>
+<!--  // 페이지에 있는 게시물 시작번호 / 끝번호
+
+<select id="list" resultType="com.itwill.domain.RequestBoard"> 
+
+SELECT * FROM
+<![CDATA[
+		( SELECT rownum idx, s.*  FROM
+				( SELECT board_no, board_title, user_id,board_date,board_content,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board
+					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
+				) s
+		 )
+]]>
+				<if test="keyword != null and !keyword.equals('')">
+                 <include refid="criteria"></include>
+                </if>
+<![CDATA[
+where idx > (#{pageNum}-1) * #{amount} and idx< #{pageNum} * #{amount}
+]]>
+
+</select>
+
+ -->
+
+<!--  // 페이지에 있는 게시물 시작번호 / 끝번호  -->
+<!--  
+<select id="list" resultType="com.itwill.domain.RequestBoard"> 
+
+SELECT * FROM
+<![CDATA[
+		( SELECT rownum idx, s.*  FROM
+				( SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board
+					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
+				) s
+		 
+		WHERE rownum > (#{pageNum}-1) * #{amount} 
+]]>
+				<if test="keyword != null">
+                   <include refid="criteria"></include> 
+                </if>
+<![CDATA[
+) where rownum< #{pageNum} * #{amount}
+]]>
+
+</select>
+
+-->
+<!--  
+검색은 되는데 그 이후론 안나옴
+<select id="list" resultType="com.itwill.domain.RequestBoard"> 
+
+SELECT * FROM
+<![CDATA[
+		( SELECT rownum idx, s.*  FROM
+				( SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board
+					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
+				) s
+		 
+		WHERE rownum > (#{pageNum}-1) * #{amount} 
+]]>
+				<if test="keyword != null">
+                   and board_title like '%'||#{keyword}||'%' 
+                </if>
+<![CDATA[
+) where rownum< #{pageNum} * #{amount}
+]]>
+
+</select>
+ -->
+ 
+</mapper>
