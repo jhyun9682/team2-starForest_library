@@ -7,4 +7,5 @@ SW융합 기반 자바 웹개발자 양성과정 (백엔드, 프론트엔드)
 파이널 프로젝트 2팀_웹페이지 구현
 
 <별숲 도서관>
--STS4, mybatis, jsp
+
+-Spring Boot (2.7.4), Java (1.8), Spring Web, JDBC, MyBatis, Maven
