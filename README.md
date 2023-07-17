@@ -1,8 +1,17 @@
 <img alt="image" src="https://github.com/jhyun9682/team2-starForest_library/assets/105275004/2f14b26f-132e-454c-8c1f-86bd5d304873" width="300" height="200"/>
 
+<br>
+<br>
+
 ## 개요
 
-📖 책에 대한 접근성을 높이는 도서관 웹서비스
+📙 편리하게 원하는 도서를 찾고 신청 가능하며
+<br>
+📗 원하는 열람실 자리를 예약할 수 있고
+<br>
+📕 독서 동아리 활동에 참여할 수 있습니다.
+<br>
+📘 다양한 도서관 서비스를 이용해보세요
 
 
 <br>
@@ -19,14 +28,15 @@
 <div><h1>📚 STACKS</h1></div>
 
 <div> 
+  
   <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
   <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> 
   
-  <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> 
   <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> 
   
-  <img src="https://img.shields.io/badge/apachetomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">
- <img src="https://img.shields.io/badge/apachemaven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white">
+  <img src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">
+ <img src="https://img.shields.io/badge/apache maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white">
+
   
   <br>
   
@@ -52,5 +62,5 @@
 
 ## 화면 구현 및 상세 내용
 
-[상세내용](https://)
+[상세내용](https://resisted-midnight-cee.notion.site/starForest_library-c62731fff98548aa803fdb655eea9682?pvs=4)
   
