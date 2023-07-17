@@ -1,13 +1,56 @@
-# team2-starForest_library
+<img width="737" alt="image" src="https://github.com/jhyun9682/star_forest_pjt/src/main/resources/static/img/starForestLogo.png">
 
-2022 아이티윌 자바 130기
+## 개요
 
-SW융합 기반 자바 웹개발자 양성과정 (백엔드, 프론트엔드)
+📖책에 대한 접근성을 높이는 도서관 웹서비스
 
-파이널 프로젝트 2팀_웹페이지 구현
 
-<별숲 도서관>
+<br>
+<br>
 
--Spring Boot (2.7.4), Java (1.8), Spring Web, JDBC, MyBatis, Maven
+## 개발기간
+2022.09 - 2022.10
 
--회원가입, 로그인 체크, 도서 목록, 도서 검색 기능 참여
+<br>
+<br>
+
+
+
+<div><h1>📚 STACKS</h1></div>
+
+<div> 
+  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
+  <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> 
+  
+  <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> 
+  <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=for-the-badge&logo=thymeleaf&logoColor=white"> 
+  
+  <img src="https://img.shields.io/badge/jwt-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white">
+
+  <img src="https://img.shields.io/badge/redis-DC382D?style=for-the-badge&logo=redis&logoColor=white">
+  <br>
+  
+  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
+  <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
+  <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
+    <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+  <br>
+  
+
+  <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> 
+  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+  
+</div>
+
+
+<br>
+<br>
+
+
+
+## 시연 영상 및 상세 내용
+
+[상세내용](https://)
+  
