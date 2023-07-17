@@ -1,4 +1,4 @@
-<img width="737" alt="image" src="https://github.com/jhyun9682/star_forest_pjt/src/main/resources/static/img/starForestLogo.png">
+<img width="737" alt="image" src="https://github.com/jhyun9682/team2-starForest_library/assets/105275004/2f14b26f-132e-454c-8c1f-86bd5d304873">
 
 ## 개요
 
